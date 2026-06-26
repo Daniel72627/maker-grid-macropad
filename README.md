@@ -1,6 +1,8 @@
 # The Maker Grid Macropad 🚀
 
-A custom 9-key macropad featuring a rotary encoder and an OLED display, powered by the Seeed Studio XIAO RP2040. Designed for the Hack Club Hackpad YSWS.
+A custom 9-key macropad featuring a rotary encoder and an OLED display, powered by the Seeed Studio XIAO RP2040. Designed for the Hack Club Hackpad YSWS. 
+This is mainly a project for me I am a designer for FTC robotics and having something I can map whatever keys to would help a ton.
+I hope you enjoy viewing my project it's my first but the start of many.
 
 ## Bill of Materials (BOM)
 To bring this to life, I need:
