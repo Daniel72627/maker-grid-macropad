@@ -2,11 +2,6 @@
 
 A custom 9-key macropad featuring a rotary encoder and an OLED display, powered by the Seeed Studio XIAO RP2040. Designed for the Hack Club Hackpad YSWS.
 
-## The 3D Design
-*(Drag and drop that final 3D render with the black case and white keycaps here!)*
-
-## PCB Layout
-
 ## Bill of Materials (BOM)
 To bring this to life, I need:
 * 1x Seeed Studio XIAO RP2040
