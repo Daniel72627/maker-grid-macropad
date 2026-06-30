@@ -1,40 +1,55 @@
 # The Maker Grid Macropad
 
-A custom 9-key mechanical macropad featuring a rotary encoder and an OLED display, designed to optimize workflows in Autodesk Fusion 360 and mechanical engineering software.
+The Maker Grid Macropad is a 9-key macropad with a rotary encoder and an OLED Display. It uses KMK firmware on a Seeed XIAO RP2040. 
 
-## Project in Action
-![Final 3D Render of The Maker Grid Macropad](Images/15.png)
+It serves as a dedicated hardware tool to make designing custom robotics chassis, brackets, and mechanisms in CAD much more efficient!
 
-## Open Source Hardware Design
+## Features:
+* 3D printed sandwich-style case. looks awesome doesn't it??
+* 128x32 OLED Display to show active tool layers
+* EC11 Rotary encoder for zooming and panning across the canvas
+* 9 Keys for all my most-used CAD shortcuts
 
-### Schematic Capture
-![KiCad Schematic View](Images/schematic.png)
+## CAD Model:
+![Overall Hackpad](assets/2.png)
+![Case Assembly](assets/assembly.png)
 
-### Two-Layer PCB Layout
-![KiCad Routed PCB Layout View](Images/routed.png)
+Everything fits together using M3 Bolts and heatset inserts. 
+It has 2 separate 3D printed pieces. The bottom shell where the PCB sits, and the top plate with the cutouts for the switches. 
 
-## Features
-* **3x3 Matrix Grid:** 9 tactile MX mechanical switches mapped to primary CAD commands.
-* **Rotary Encoder Integration:** EC11 knob programmed for smooth canvas zooming, scrolling, and timeline scrub navigation.
-* **0.91" I2C OLED Display:** Real-time visual feedback using an SSD1306 screen to show active tool layers.
-* **Seeed Studio XIAO RP2040 Core:** High-performance, compact dual-core ARM Cortex-M0+ processing node running CircuitPython/KMK.
+Made in Fusion360. Nifty
 
-## How It Works
-The hardware design focuses on tight component tolerances, utilizing physical clearances tailored for custom integration. The electronic layer routing isolates the I2C bus signals for the OLED display and maps the key matrix using a efficient `COL2ROW` diode orientation to eliminate key ghosting.
+## PCB
+Here's my PCB! It was made in KiCad. 
 
-The firmware leverages the lightweight KMK framework running on a CircuitPython stack. It reads digital signals from the switch matrix and translates them into physical USB HID keyboard events instantly without requiring local host drivers.
+### Schematic
+![Schematic](assets/schematic.png)
 
-## Repository Structure
-* `/CAD`: Contains clean `.step` models of the Top and Bottom enclosure assemblies ready for 3D printing slicing.
-* `/PCB`: Contains the native, editable KiCad schematic (`.kicad_sch`) and board layout (`.kicad_pcb`) design files.
-* `/production`: Holds the production-ready fabrication file package (`gerbers.zip`).
-* `/Firmware`: Houses the localized Python script configuration (`main.py`) deployed to the RP2040 microcontroller.
+### PCB
+![PCB Layout](assets/routed.png)
 
-## Bill of Materials (BOM)
-* 1x Seeed Studio XIAO RP2040 Microcontroller
-* 9x MX-style Mechanical Switches
-* 9x Blank DSA Profile Keycaps
-* 9x 1N4148 Through-hole Switching Diodes
-* 1x 0.91" I2C OLED Display Module (SSD1306)
-* 1x EC11 Rotary Encoder + Custom Knob Profile
+I used a COL2ROW diode matrix for the keyswitch footprints to prevent ghosting. I think in retrospect, routing the I2C traces for the OLED was the trickiest part. 
+
+## Firmware Overview
+This hackpad uses KMK firmware (CircuitPython) for everything.
+
+* The rotary encoder zooms in and out on the canvas. 
+* The 9 keys currently act as macros for my most used Fusion 360 tools, dynamically changing based on whether I am Sketching, Solid Modeling, or Assembling.
+* The OLED displays exactly which layer I am currently on!
+
+I might add more in the future! That's it for now
+
+## BOM:
+Here should be everything you need to make this hackpad
+
+* 9x Cherry MX-style Switches
+* 9x Blank DSA Keycaps
 * M3 Heat-Set Inserts & M3 Socket Cap Screws
+* 9x 1N4148 Through-hole Diodes
+* 1x 0.91" 128x32 OLED Display
+* 1x EC11 Rotary Encoder + Knob
+* 1x XIAO RP2040
+* 1x Case (2 3D printed parts)
+
+## Extra stuff
+Oh fun fact: I designed this specifically because clicking through menus while designing our base robot for FTC Team 7082 was taking way too long LOL
